@@ -34,7 +34,7 @@ To replicate this behavior using a 4×1 MUX:
   - I₃ = 0
 
 <p align="center">
-  <img src="assets/xor_mux.png" alt="XOR using 4x1 Multiplexer" width="400"/>
+  <img src="assets/XOR_MUX.png" alt="XOR using 4x1 Multiplexer" width="400"/>
 </p>
 
 This demonstrates how a LUT can be realized using multiplexers, where the select lines are the input variables and the data inputs represent the function's output values.

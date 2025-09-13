@@ -37,6 +37,8 @@ To replicate this behavior using a 4×1 MUX:
   <img src="assets/XOR_MUX.png" alt="XOR using 4x1 Multiplexer" width="400"/>
 </p>
 
+A detailed simulation of the XOR function using a 4×1 multiplexer can be accessed via [XOR_MUX](https://circuitverse.org/users/335760/projects/xor_mux-25da6eb6-d3a2-4ed3-93e5-1d5b224fb42e).
+
 This demonstrates how a LUT can be realized using multiplexers, where the select lines are the input variables and the data inputs represent the function's output values.
 
 ---

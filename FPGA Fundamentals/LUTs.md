@@ -14,10 +14,10 @@ A LUT can be viewed as a multiplexer where the selector lines represent the inpu
 
 The XOR function can be implemented using a 4×1 multiplexer by assigning the correct logic levels to the data inputs based on the truth table.
 
-### 🧮 XOR Truth Table
+### 🧮 XOR Truth Table                         
 
 | A | B | Select (AB) | Output |
-|---|---|--------------|--------|
+|---|---|--------------|--------|            
 | 0 | 0 | 00           |   0    |
 | 0 | 1 | 01           |   1    |
 | 1 | 0 | 10           |   1    |
@@ -40,6 +40,82 @@ To replicate this behavior using a 4×1 MUX:
 A detailed simulation of the XOR function using a 4×1 multiplexer can be accessed via [XOR_MUX](https://circuitverse.org/users/335760/projects/xor_mux-25da6eb6-d3a2-4ed3-93e5-1d5b224fb42e).
 
 This demonstrates how a LUT can be realized using multiplexers, where the select lines are the input variables and the data inputs represent the function's output values.
+
+# How to build a LUT using verilog 
+
+**Verilog code to build a 2-input LUT**
+```verilog
+module lut_example (
+    input  [1:0] addr,       // 2-bit address input
+    output reg [3:0] data    // 4-bit output (can be adjusted as needed)
+);
+
+always @(*) begin
+    case (addr)
+        2'b00: data = 4'h1;
+        2'b01: data = 4'h3;
+        2'b10: data = 4'h5;
+        2'b11: data = 4'hF;
+        default: data = 4'h0;
+    endcase
+end
+
+endmodule
+
+```
+**Code explanation**
+```verilog
+module lut_example (
+  input[1:0]addr,
+  output reg [3:0] data
+);
+```
+module lut_example : Declares a module named lut_example.<br>
+input[1:0] addr : A 2-bit input signal, which acts like an adress or selector (values from 0 to 3)<br>
+output reg [3:0] data : an 4-bit output that holds the value corresponding to the input address
+
+```verilog
+always @(*) begin
+```
+This is a combinational always block. it means the logic inside will update whenever any input changes, no clock required
+
+```verilog
+    case (addr)
+        2'b00: data = 4'h1;
+        2'b01: data = 4'h3;
+        2'b10: data = 4'h5;
+        2'b11: data = 4'hF;
+        default: data = 4'h0;
+    endcase
+```
+This is a case statement that checks the value of addr.<br>
+For each possible 3-bit input (from 000 to 111), it assigns a specific 8-bit hexadecimal value to data.<br>
+default ensures a fallback value (8'h00) if addr somehow goes out of range (which shouldn't happen with 3 bits).
+
+```verilog
+endmodule
+```
+Marks the end of the module.
+
+# Verilog Code: 2-input LUT for XOR
+```verilog
+module xor_lut (
+    input  [1:0] addr,     // Combined inputs A and B
+    output reg data        // XOR output
+);
+
+always @(*) begin
+    case (addr)
+        2'b00: data = 1'b0;  // A=0, B=0 → 0
+        2'b01: data = 1'b1;  // A=0, B=1 → 1
+        2'b10: data = 1'b1;  // A=1, B=0 → 1
+        2'b11: data = 1'b0;  // A=1, B=1 → 0
+        default: data = 1'b0;
+    endcase
+end
+
+endmodule
+```
 
 ---
 

@@ -6,15 +6,21 @@ Instead of manually designing a circuit using logic gates like AND, OR, or XOR b
 
 This approach eliminates the need for complex circuit design and expression derivation, making LUTs especially valuable in programmable logic devices such as FPGAs.
 
+Every FPGA logic block contains LUTs (usually 4-input in iCE40) paired with flip-flops, making them flexible for any logic function.
+
 # How to build one?
 
 A LUT can be viewed as a multiplexer where the selector lines represent the input variables of a function, and the data inputs correspond to the function’s predefined output values. The multiplexer’s output then serves as the final output of the function.
 
-## 🔄 XOR Function Using a 4×1 Multiplexer
+## Example: 🔄 XOR Function Using a 4×1 Multiplexer
 
 The XOR function can be implemented using a 4×1 multiplexer by assigning the correct logic levels to the data inputs based on the truth table.
 
-### 🧮 XOR Truth Table                         
+<table>
+  <tr>
+    <td>
+
+### 🧮 XOR Truth Table
 
 | A | B | Select (AB) | Output |
 |---|---|--------------|--------|            
@@ -26,16 +32,19 @@ The XOR function can be implemented using a 4×1 multiplexer by assigning the co
 ### 🧩 MUX Configuration
 
 To replicate this behavior using a 4×1 MUX:
-- **Select lines**: A and B
+- **Select lines**: A and B  
 - **Data inputs**:
-  - I₀ = 0
-  - I₁ = 1
-  - I₂ = 1
-  - I₃ = 0
+  - I₀ = 0  
+  - I₁ = 1  
+  - I₂ = 1  
+  - I₃ = 0  
 
-<p align="center">
-  <img src="assets/XOR_MUX.png" alt="XOR using 4x1 Multiplexer" width="400"/>
-</p>
+    </td>
+    <td style="padding-left: 20px;">
+      <img src="assets/XOR_MUX.png" alt="XOR using 4x1 Multiplexer" width="300"/>
+    </td>
+  </tr>
+</table>
 
 A detailed simulation of the XOR function using a 4×1 multiplexer can be accessed via [XOR_MUX](https://circuitverse.org/users/335760/projects/xor_mux-25da6eb6-d3a2-4ed3-93e5-1d5b224fb42e).
 

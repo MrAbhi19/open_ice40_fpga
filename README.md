@@ -1,6 +1,6 @@
 # Open iCE40 FPGA  
 
-An open-source project that combines **FPGA education** with **custom hardware design**.  
+An open-source project where we are building our own custom FPGA boards similar to Tang nano using ice40 chip that also combines **FPGA education** with **custom hardware design**.  
 We explore how FPGAs like the iCE40 work (LUTs, CLBs, routing, registers, CPUs) while also designing a custom FPGA development board from scratch.  
 
 ---
